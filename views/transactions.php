@@ -43,7 +43,7 @@
                         <td><?= $transaction['date'] ?></td>
                         <td><?= $transaction['chequeNumber'] ?></td>
                         <td><?= $transaction['description'] ?></td>
-                        <td><?= $transaction['amount'] ?></td>
+                        <td><?= formatNairaAmount($transaction['amount']) ?></td>
                     </tr>
                 <?php endforeach ?>
             <?php endif ?>
@@ -51,15 +51,15 @@
         <tfoot>
             <tr>
                 <th colspan="3">Total Income</th>
-                <td><?= $totals['totalIncome'] ?></td>
+                <td><?= formatNairaAmount($totals['totalIncome']) ?? 0 ?></td>
             </tr>
             <tr>
                 <th colspan="3">Total Expense</th>
-                <td><?= $totals['totalExpense'] ?></td>
+                <td><?= formatNairaAmount($totals['totalExpense']) ?? 0 ?></td>
             </tr>
             <tr>
                 <th colspan="3">Net Total</th>
-                <td><?= $totals['netTotal'] ?></td>
+                <td><?= formatNairaAmount($totals['netTotal']) ?? 0 ?></td>
             </tr>
         </tfoot>
     </table>
